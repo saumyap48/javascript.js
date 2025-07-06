@@ -80,6 +80,7 @@ agar number phle to sbko number trah treat kiya jaega
 //a number,treating it as 0. 
 console.log(null>0);//false
 console.log(null>=0);//false
-console.log(null==0);//true
+console.log(null==0);//false
+console.log(null==undefine);//true
 //===  strict check also check datatype
 console.log("2"===2);//false;
