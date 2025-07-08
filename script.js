@@ -1,29 +1,17 @@
-const buttons=document.querySelectorAll('.button');
-const body=document.querySelector('body');
-
-buttons.forEach(function(button){
-  console.log(button);
-  button.addEventListener('click',function(e){
-    //console.log(e); 
-   // console.log(e.target) e.target se pata chalta hai kaunsa button click hua.console.log() bas developer console me information print karta hai.
-   //same as below code
-   /*for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function(e) {
-    console.log(e.target);
-  });
-}
-*/
-    if(e.target.id==='grey'){
-      body.style.backgroundColor=e.target.id;
-    }
-    if(e.target.id==='white'){
-      body.style.backgroundColor=e.target.id;
-    }
-    if(e.target.id==='yellow'){
-      body.style.backgroundColor=e.target.id;
-    }
-    if(e.target.id==='blue'){
-      body.style.backgroundColor=e.target.id;
-    }
-  })
+const form=document.querySelector('form');
+form.addEventListener('submit',function(event){
+    event.preventDefault();
+    document.querySelector('#height').value
+   const height= parseInt(document.querySelector('#height').value);
+   const weight=parseInt(document.querySelector('#weight').value);
+   const results=document.querySelector('#results');
+   if(height<=0 || isNaN(height)){
+    results.innerHTML=`please give a valid height ${height}`;
+   } else if(weight==='' || weight<0 || isNaN(weight)){
+    results.innerHTML=`please give a valid weight ${weight}`;
+   }
+   else{
+   const bmi= (weight)/((height*height)/10000).toFixed(2);
+   results.innerHTML=`<span>${bmi}</span>`;
+   }
 });
